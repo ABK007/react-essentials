@@ -4,6 +4,9 @@ import ComponentImg from "./assets/components.png";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  function handleClick (selectedButton) {
+        console.log(selectedButton)
+    }
   return (
     <div>
       <Header />
@@ -17,11 +20,11 @@ function App() {
         />
         <section id="examples">
           <menu>
-            <TabButton>Class-based</TabButton>
-            <TabButton>Function-based</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onSelect={() => handleClick('components')}>Components</TabButton>
+            <TabButton onSelect={() => handleClick('function-based')}>Function-based</TabButton>
+            <TabButton onSelect={() => handleClick('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleClick('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleClick('state')}>State</TabButton>
 
           </menu>
         </section>
