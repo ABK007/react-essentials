@@ -3,9 +3,10 @@ import CoreConcepts from "./components/CoreConcepts.jsx";
 import ComponentImg from "./assets/components.png";
 import TabButton from "./components/TabButton.jsx";
 import { useState } from "react"
+import { EXAMPLES } from "../data-with-examples.js";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [selectedTopic, setSelectedTopic] = useState('components');
 
   function handleClick (selectedButton) {
         setSelectedTopic(selectedButton);
@@ -25,13 +26,19 @@ function App() {
         <section id="examples">
           <menu>
             <TabButton onSelect={() => handleClick('components')}>Components</TabButton>
-            <TabButton onSelect={() => handleClick('function-based')}>Function-based</TabButton>
             <TabButton onSelect={() => handleClick('jsx')}>JSX</TabButton>
             <TabButton onSelect={() => handleClick('props')}>Props</TabButton>
             <TabButton onSelect={() => handleClick('state')}>State</TabButton>
 
           </menu>
-          {selectedTopic}
+          <div id='tab-content'>
+            <h3 >{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
+
+          </div>
         </section>
       </main>
     </div>
